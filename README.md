@@ -1,2 +1,7 @@
-# mango
-Manglaneso's Hugo theme
+# Theme Name
+
+## Features
+
+## Installation
+
+## Configuration
