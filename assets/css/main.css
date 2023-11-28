@@ -4,10 +4,11 @@ body {
   line-height: 1.5;
   margin: 1rem;
   max-width: 768px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 header {
-  border-bottom: 1px solid #222;
   margin-bottom: 1rem;
 }
 
@@ -17,6 +18,53 @@ footer {
 }
 
 a {
-  color: #00e;
+  color: rgb(127, 0, 238);
   text-decoration: none;
+}
+
+.font-base {
+ font-family:Georgia,serif
+}
+.font-display {
+ font-family:Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+.font-mono,
+.post-header ol li:before,
+.text-content ol li:before {
+ font-family:SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+}
+
+.inner-focus,
+.landing .bookmarks .post-preview-link,
+.landing .post-previews .post-preview-link,
+.navigation a {
+  color: rgb(0, 0, 0);
+  outline-offset:-4px
+}
+
+.navigation {
+ background:var(--glare);
+ font-family:SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+}
+.navigation ul {
+ list-style:none;
+ display:flex;
+ flex-wrap:wrap;
+ padding-left: 0;
+}
+.navigation li {
+ display:flex
+}
+
+.navigation li:first-child a {
+  padding-left: 0;
+ }
+
+.navigation a {
+ padding:.64rem;
+ text-decoration:none
+}
+.navigation a.current,
+.navigation a:hover {
+ background:var(--base)
 }

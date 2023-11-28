@@ -1,23 +1,34 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'manglaneso.me'
 
 [[menus.main]]
-name = 'Home'
+name = 'manglaneso.me'
 pageRef = '/'
 weight = 10
 
 [[menus.main]]
-name = 'Posts'
-pageRef = '/posts'
+name = 'blog'
+pageRef = '/blog'
 weight = 20
 
 [[menus.main]]
-name = 'Tags'
-pageRef = '/tags'
+name = 'projects'
+pageRef = '/projects'
 weight = 30
+
+[[menus.main]]
+name = 'tags'
+pageRef = '/tags'
+weight = 40
 
 [module]
   [module.hugoVersion]
     extended = false
     min = "0.116.0"
+
+[outputs]
+  home = ["HTML", "RSS"]
+
+[params]
+  showrss = true
