@@ -4,7 +4,8 @@
   {{ range .Pages }}
     {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
     {{ $dateHuman := .Date | time.Format ":date_long" }}
-    <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
     <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+    <time datetime="{{ $dateMachine }}" class="date font-mono text-200">{{ $dateHuman }}</time>
+    {{ partial "taglist.html" . }}
   {{ end }}
 {{ end }}

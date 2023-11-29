@@ -6,6 +6,9 @@ title = 'manglaneso.me'
 name = 'manglaneso.me'
 pageRef = '/'
 weight = 10
+  [menus.main.params]
+    style = "color: rgb(127, 0, 238);"
+
 
 [[menus.main]]
 name = 'blog'
