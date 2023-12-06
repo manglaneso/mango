@@ -1,34 +1,3 @@
-baseURL = 'https://example.org/'
-languageCode = 'en-us'
-title = 'manglaneso.me'
-
-[[menus.main]]
-name = 'manglaneso.me'
-pageRef = '/'
-weight = 10
-  [menus.main.params]
-    title = true
-
-[[menus.main]]
-name = 'blog'
-pageRef = '/blog'
-weight = 20
-
-[[menus.main]]
-name = 'projects'
-pageRef = '/projects'
-weight = 30
-
-[[menus.main]]
-name = 'tags'
-pageRef = '/tags'
-weight = 40
-
-[module]
-  [module.hugoVersion]
-    extended = false
-    min = "0.116.0"
-
 [outputs]
   home = ["HTML", "RSS"]
 
