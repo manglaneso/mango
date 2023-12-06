@@ -21,11 +21,24 @@ Renders a menu for the given menu ID.
 {{- define "partials/inline/menu/walk.html" }}
   {{- $page := .page }}
   {{- range .menuEntries }}
-    {{- $attrs := dict "href" .URL "style" .Params.style }}
+    {{/*- $attrs := dict "href" .URL "style" .Params.style */}}
+    {{- $attrs := dict "href" .URL }}    
     {{- if $page.IsMenuCurrent .Menu . }}
-      {{- $attrs = merge $attrs (dict "class" "active" "aria-current" "page") }}
+      {{- if .Params.title }}
+        {{- $attrs = merge $attrs (dict "class" "active title") }}
+      {{- else }}
+        {{- $attrs = merge $attrs (dict "class" "active" "aria-current" "page") }}
+      {{- end }}
     {{- else if $page.HasMenuCurrent .Menu .}}
-      {{- $attrs = merge $attrs (dict "class" "ancestor" "aria-current" "true") }}
+      {{- if .Params.title }}
+        {{- $attrs = merge $attrs (dict "class" "ancestor title") }}
+      {{- else }}
+        {{- $attrs = merge $attrs (dict "class" "ancestor" "aria-current" "true") }}
+      {{- end }}
+    {{- else }}
+      {{- if .Params.title }}
+        {{- $attrs = merge $attrs (dict "class" "title") }}
+      {{- end }}
     {{- end }}
     <li>
       <a

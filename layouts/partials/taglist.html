@@ -1,9 +1,9 @@
-<ul class="badges">
+<ul class="tags">
     <div>
         {{- with .Params.tags -}}
             {{- if ge (len .) 1 -}}
                 {{- range . -}}
-                    <li class="badge"><a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}/">{{ . }}</a></li>
+                    <li class="tag"><a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}/">{{ . }}</a></li>
                 {{ end -}}
             {{- end -}}
         {{- end -}}
