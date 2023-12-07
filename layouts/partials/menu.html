@@ -1,0 +1,64 @@
+{{- /*
+Renders a menu for the given menu ID.
+
+@context {page} page The current page.
+@context {string} menuID The menu ID.
+
+@example: {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+*/}}
+
+{{- $page := .page }}
+{{- $menuID := .menuID }}
+
+{{- with index site.Menus $menuID }}
+  <nav class="navigation">
+    <ul>
+      {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
+    </ul>
+  </nav>
+{{- end }}
+
+{{- define "partials/inline/menu/walk.html" }}
+  {{- $page := .page }}
+  {{- range .menuEntries }}
+    {{/*- $attrs := dict "href" .URL "style" .Params.style */}}
+    {{- $attrs := dict "href" .URL }}    
+    {{- if $page.IsMenuCurrent .Menu . }}
+      {{- if .Params.title }}
+        {{- $attrs = merge $attrs (dict "class" "active title") }}
+      {{- else }}
+        {{- $attrs = merge $attrs (dict "class" "active" "aria-current" "page") }}
+      {{- end }}
+    {{- else if $page.HasMenuCurrent .Menu .}}
+      {{- if .Params.title }}
+        {{- $attrs = merge $attrs (dict "class" "ancestor title") }}
+      {{- else }}
+        {{- $attrs = merge $attrs (dict "class" "ancestor" "aria-current" "true") }}
+      {{- end }}
+    {{- else }}
+      {{- if .Params.title }}
+        {{- $attrs = merge $attrs (dict "class" "title") }}
+      {{- end }}
+    {{- end }}
+    <li>
+      <a
+        {{- range $k, $v := $attrs }}
+          {{- with $v }}
+            {{- printf " %s=%q" $k $v | safeHTMLAttr }}
+          {{- end }}
+        {{- end -}}
+      >{{ or (T .Identifier) .Name | safeHTML }}</a>
+      {{- with .Children }}
+        <ul>
+          {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
+        </ul>
+      {{- end }}
+    </li>
+  {{- end }}
+  {{- if site.Params.showrss }}
+    <li>
+      <a href="/index.xml">RSS</a>
+    </li>
+  {{- end }}
+  
+{{- end }}

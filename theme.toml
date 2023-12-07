@@ -1,0 +1,16 @@
+name = 'Mango'
+license = 'MIT'
+licenselink = 'https://github.com/manglaneso/mango/LICENSE'
+description = 'Manglaneso Hugo theme'
+
+# The home page of the theme, where the source can be found
+homepage = 'https://github.com/manglaneso/mango'
+
+# Taxonomy terms
+tags = ['blog', 'personal']
+features = ['rss']
+
+# If the theme has a single author
+[author]
+  name = 'Manglaneso'
+  homepage = 'https://manglaneso.me'
