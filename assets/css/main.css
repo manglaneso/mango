@@ -13,7 +13,7 @@ header {
 
 footer {
   border-top: 1px solid #222;
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 a {
@@ -80,6 +80,10 @@ a {
   font-size:.64rem
 }
 
+.footer-size {
+  font-size:.75rem
+}
+
 .tag {
   --shade: #e2dde7;
   background:var(--shade);
@@ -123,4 +127,34 @@ h5 {
 
 .title {
   color: rgb(127, 0, 238) !important;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+blockquote {
+	color: #828282;
+	border-left: 4px solid #e8e8e8;
+	padding-left: 15px;
+	font-size: 1.125rem;
+	font-style: italic;
+}
+
+pre {
+  background: #f4f4f4;
+  border: 1px solid #ddd;
+  border-left: 3px solid rgb(127, 0, 238);
+  color: #666;
+  page-break-inside: avoid;
+  font-family: monospace;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 1.6em;
+  max-width: 100%;
+  overflow: auto;
+  padding: 1em 1.5em;
+  display: block;
+  word-wrap: break-word;
 }
